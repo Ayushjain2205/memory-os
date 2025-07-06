@@ -21,25 +21,25 @@ function getLoaderSVG(color) {
 const modes = [
   {
     name: "Personal",
-    icon: `<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="#2563eb" stroke-width="1.5"/><path d="M16.667 16.667c0-2.577-3-4.334-6.667-4.334s-6.667 1.757-6.667 4.334" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-icon lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
     bg: "#e8f0fe",
     color: "#2563eb",
   },
   {
     name: "Work",
-    icon: `<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.5" y="7.5" width="13" height="8" rx="2" stroke="#22c55e" stroke-width="1.5"/><path d="M7 7V5.5A2.5 2.5 0 0 1 12 5.5V7" stroke="#22c55e" stroke-width="1.5"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase-icon lucide-briefcase"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>`,
     bg: "#e6faea",
     color: "#22c55e",
   },
   {
     name: "Health",
-    icon: `<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 17s-6-4.686-6-8.5A4.5 4.5 0 0 1 10 4a4.5 4.5 0 0 1 6 4.5C16 12.314 10 17 10 17Z" stroke="#ef4444" stroke-width="1.5"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`,
     bg: "#fdeaea",
     color: "#ef4444",
   },
   {
     name: "Travel",
-    icon: `<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 16.5 16.5 3.5m0 0-4.5-.5m4.5.5-.5 4.5" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plane-icon lucide-plane"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>`,
     bg: "#f3e8ff",
     color: "#a78bfa",
   },
@@ -49,31 +49,31 @@ const modes = [
 const memoryTypes = [
   {
     name: "Goal",
-    icon: `<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" rx="6" fill="#E6FAEA"/><path d="M10 15.5c3.038 0 5.5-2.462 5.5-5.5S13.038 4.5 10 4.5 4.5 6.962 4.5 10s2.462 5.5 5.5 5.5Z" stroke="#22C55E" stroke-width="1.5"/><path d="M10 7.5v3l2 2" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain-icon lucide-brain"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg>`,
     color: "#22C55E",
     bg: "#E6FAEA",
   },
   {
     name: "Preference",
-    icon: `<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" rx="6" fill="#F3E8FF"/><path d="M10 14.5l-1.618-1.07a1 1 0 0 1-.382-1.118l.618-1.902-1.618-1.07a1 1 0 0 1 .618-1.764h2l.618-1.902a1 1 0 0 1 1.764 0l.618 1.902h2a1 1 0 0 1 .618 1.764l-1.618 1.07.618 1.902a1 1 0 0 1-1.382 1.118L10 14.5Z" stroke="#A78BFA" stroke-width="1.5"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>`,
     color: "#A78BFA",
     bg: "#F3E8FF",
   },
   {
     name: "Fact",
-    icon: `<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" rx="6" fill="#E8F0FE"/><path d="M10 14.5v-1m0-6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" stroke="#2563EB" stroke-width="1.5"/><circle cx="10" cy="10" r="7.25" stroke="#2563EB" stroke-width="1.5"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb-icon lucide-lightbulb"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>`,
     color: "#2563EB",
     bg: "#E8F0FE",
   },
   {
     name: "Note",
-    icon: `<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" rx="6" fill="#F4F4F5"/><rect x="6" y="7" width="8" height="6" rx="1" stroke="#71717A" stroke-width="1.5"/><path d="M8 9h4" stroke="#71717A" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text-icon lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>`,
     color: "#71717A",
     bg: "#F4F4F5",
   },
   {
     name: "Document",
-    icon: `<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" rx="6" fill="#E8F0FE"/><rect x="6" y="6" width="8" height="8" rx="1" stroke="#2563EB" stroke-width="1.5"/><path d="M8 9h4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-icon lucide-book"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>`,
     color: "#2563EB",
     bg: "#E8F0FE",
   },
