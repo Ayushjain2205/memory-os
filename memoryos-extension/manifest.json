@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "MemoryOS for LLMs",
+  "version": "0.1.0",
+  "description": "Adds memory features to LLM apps like ChatGPT.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://chat.openai.com/*", "https://chatgpt.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://chat.openai.com/*", "https://chatgpt.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
