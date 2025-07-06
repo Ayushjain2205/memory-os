@@ -22,22 +22,36 @@ function injectMemoryButton() {
   // Prevent duplicate buttons
   if (document.getElementById("memoryos-add-memory-btn")) return;
 
-  // Create the text button
+  // Create the image button
   const btn = document.createElement("button");
   btn.id = "memoryos-add-memory-btn";
   btn.title = "Add to Memory";
-  btn.textContent = "Add to Memory";
-  btn.style.marginRight = "12px";
-  btn.style.background = "#fff";
-  btn.style.color = "#000";
-  btn.style.border = "2px solid #000";
-  btn.style.borderRadius = "6px";
-  btn.style.padding = "6px 14px";
-  btn.style.fontWeight = "bold";
-  btn.style.fontSize = "16px";
+  btn.style.padding = "0";
+  btn.style.width = "44px";
+  btn.style.height = "44px";
+  btn.style.display = "flex";
+  btn.style.alignItems = "center";
+  btn.style.justifyContent = "center";
   btn.style.cursor = "pointer";
   btn.style.zIndex = "9999";
-  btn.style.fontFamily = "Poppins, sans-serif";
+  btn.style.boxShadow = "none";
+  btn.style.background = "none";
+  btn.style.border = "none";
+
+  // Add the logo image
+  const img = document.createElement("img");
+  img.src = chrome.runtime.getURL("logo.png");
+  img.alt = "Add to Memory";
+  img.style.width = "32px";
+  img.style.height = "32px";
+  img.style.objectFit = "contain";
+  img.style.display = "block";
+  btn.appendChild(img);
+
+  // Loader SVG generator
+  function getLoaderSVG(color) {
+    return `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="14" stroke="${color}" stroke-width="4" opacity="0.2"/><circle cx="16" cy="16" r="14" stroke="${color}" stroke-width="4" stroke-linecap="round" stroke-dasharray="80" stroke-dashoffset="60"><animateTransform attributeName="transform" type="rotate" from="0 16 16" to="360 16 16" dur="1s" repeatCount="indefinite"/></circle></svg>`;
+  }
 
   // Dropdown menu in document.body
   let menu = null;
@@ -118,6 +132,28 @@ function injectMemoryButton() {
           idx === selectedIdx ? mode.color : "#222";
         item.querySelector("span:last-child").style.fontWeight =
           idx === selectedIdx ? "600" : "400";
+      });
+      item.addEventListener("click", () => {
+        hideMenu();
+        // Replace logo with loader
+        btn.innerHTML = getLoaderSVG(mode.color);
+        btn.disabled = true;
+        setTimeout(() => {
+          // Restore logo
+          btn.innerHTML = "";
+          btn.appendChild(img);
+          btn.disabled = false;
+          // Append to prompt box
+          const promptBox = document.querySelector(
+            'div#prompt-textarea[contenteditable="true"]'
+          );
+          if (promptBox) {
+            const p = document.createElement("p");
+            p.innerHTML = `<b>${mode.name}:</b> asdasdas asdasdd as`;
+            promptBox.appendChild(p);
+            promptBox.focus();
+          }
+        }, 5000);
       });
       menu.appendChild(item);
     });
