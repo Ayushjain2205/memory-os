@@ -402,6 +402,29 @@ function addMemoryButtonsToResponses() {
               btn.innerHTML = getLoaderSVG(type.color);
               btn.disabled = true;
               setTimeout(() => {
+                const responseText =
+                  response.innerText || response.textContent || "";
+                const title = responseText
+                  .split(/[.!?\n]/)[0]
+                  .split(" ")
+                  .slice(0, 8)
+                  .join(" ");
+                const content = responseText;
+                const tags = [type.name.toLowerCase(), mode.name.toLowerCase()];
+                const date = new Date().toISOString().slice(0, 10);
+                const memory = {
+                  title,
+                  content,
+                  tags,
+                  type: type.name,
+                  mode: mode.name,
+                  date,
+                };
+                chrome.storage.local.get(["memories"], (result) => {
+                  const memories = result.memories || [];
+                  memories.unshift(memory);
+                  chrome.storage.local.set({ memories });
+                });
                 btn.innerHTML =
                   '<span style="font-size: 22px; display: flex; align-items: center; justify-content: center; width: 20px; height: 20px;">👍</span>';
                 setTimeout(() => {
