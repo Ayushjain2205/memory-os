@@ -18,8 +18,24 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["logo.png"],
+      "resources": [
+        "logo.png",
+        "sidepanel.html",
+        "sidepanel.js",
+        "sidepanel.css"
+      ],
       "matches": ["<all_urls>"]
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
 }
