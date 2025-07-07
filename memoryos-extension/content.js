@@ -79,6 +79,14 @@ const memoryTypes = [
   },
 ];
 
+// Demo prompt texts for each mode
+const modeDemoPrompts = {
+  Personal: `"I've noticed that I feel most productive when I start my mornings with a 10-minute meditation, followed by a healthy breakfast and a quick review of my daily goals. This routine helps me stay focused and reduces my stress throughout the day. I want to make this a consistent habit and track my progress each week."`,
+  Work: `"For all my projects, I prefer the codebase to strictly follow Airbnb's TypeScript style guide. I value clear, descriptive variable names, modular functions, and comprehensive JSDoc comments for every method. I also appreciate when my teammates leave thoughtful code reviews and document any architectural decisions in the project wiki. This helps maintain high code quality and makes onboarding new team members much easier."`,
+  Health: `"I'm aiming to walk at least 8,000 steps every day and drink 2 liters of water. In addition, I'm tracking my sleep to ensure I get at least 7 hours each night. I've noticed that regular exercise and proper hydration significantly improve my mood and energy levels. My goal is to build a sustainable routine that supports both my physical and mental well-being."`,
+  Travel: `"My dream is to visit Kyoto during cherry blossom season and explore the local temples, gardens, and traditional tea houses. I want to immerse myself in Japanese culture, try authentic cuisine, and take plenty of photos of the beautiful scenery. I'm also interested in learning basic Japanese phrases to enhance my travel experience and connect with locals."`,
+};
+
 function injectMemoryButton() {
   // Find the composer trailing actions container
   const trailingActions = document.querySelector(
@@ -184,8 +192,11 @@ function injectMemoryButton() {
             'div#prompt-textarea[contenteditable="true"]'
           );
           if (promptBox) {
+            // Append demo prompt for the selected mode
+            const demo =
+              modeDemoPrompts[mode.name] || `"${mode.name}: [Your note here]"`;
             const p = document.createElement("p");
-            p.innerHTML = `<b>${mode.name}:</b> asdasdas asdasdd as`;
+            p.innerHTML = demo.replace(/\n/g, "<br>");
             promptBox.appendChild(p);
             promptBox.focus();
           }
